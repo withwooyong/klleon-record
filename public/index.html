@@ -1,43 +1,143 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
   <head>
-    <meta charset="utf-8" />
-    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#000000" />
-    <meta
-      name="description"
-      content="Web site created using create-react-app"
-    />
-    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
-    <!--
-      manifest.json provides metadata used when your web app is installed on a
-      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
-    -->
-    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-    <!--
-      Notice the use of %PUBLIC_URL% in the tags above.
-      It will be replaced with the URL of the `public` folder during the build.
-      Only files inside the `public` folder can be referenced from the HTML.
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>React + Klleon Chat SDK</title>
+    <!-- KlleonChat SDK 스크립트 로드 -->
+    <script src="https://web.sdk.klleon.io/1.2.0/klleon-chat.umd.js"></script>
+    <script>
+      // 커스텀 요소 정의
+      customElements.define(
+        "avatar-container",
+        class extends HTMLElement {
+          constructor() {
+            super();
+            this.style.display = "block";
+            this.style.width = "100%";
+            this.style.height = "500px";
+            this.style.minHeight = "500px";
+            this.style.border = "3px solid #007bff";
+            this.style.borderRadius = "15px";
+            this.style.backgroundColor = "#f8f9fa";
+            this.style.position = "relative";
+            this.style.overflow = "hidden";
+            this.style.boxShadow = "0 4px 8px rgba(0,0,0,0.1)";
+          }
+        }
+      );
 
-      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
-      work correctly both with client-side routing and a non-root public URL.
-      Learn how to configure a non-root public URL by running `npm run build`.
-    -->
-    <title>React App</title>
+      customElements.define(
+        "chat-container",
+        class extends HTMLElement {
+          constructor() {
+            super();
+            this.style.display = "block";
+            this.style.width = "100%";
+            this.style.height = "400px";
+            this.style.minHeight = "400px";
+            this.style.border = "3px solid #28a745";
+            this.style.borderRadius = "15px";
+            this.style.backgroundColor = "#f8f9fa";
+            this.style.position = "relative";
+            this.style.overflow = "hidden";
+            this.style.boxShadow = "0 4px 8px rgba(0,0,0,0.1)";
+          }
+        }
+      );
+    </script>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", sans-serif;
+        background-color: #f5f5f5;
+      }
+
+      .sdk-container {
+        display: flex;
+        gap: 30px;
+        padding: 30px;
+        max-width: 1400px;
+        margin: 0 auto;
+        min-height: calc(100vh - 80px);
+      }
+
+      .chat-control-container {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        flex: 1;
+      }
+
+      .chat-echo-container {
+        display: flex;
+        gap: 10px;
+        padding: 15px;
+        background-color: #e9ecef;
+        border-radius: 10px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+
+      .echo-input {
+        flex: 1;
+        padding: 12px;
+        border: 2px solid #ced4da;
+        border-radius: 8px;
+        font-size: 14px;
+        outline: none;
+        transition: border-color 0.3s;
+      }
+
+      .echo-input:focus {
+        border-color: #007bff;
+      }
+
+      .echo-button {
+        padding: 12px 20px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        font-size: 14px;
+        font-weight: 500;
+        transition: background-color 0.3s;
+      }
+
+      .echo-button:hover:not(:disabled) {
+        background-color: #0056b3;
+      }
+
+      .echo-button:disabled {
+        background-color: #6c757d;
+        cursor: not-allowed;
+      }
+
+      @keyframes pulse {
+        0% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0.5;
+        }
+        100% {
+          opacity: 1;
+        }
+      }
+
+      .loading-text {
+        color: #007bff;
+        font-weight: bold;
+        text-align: center;
+        padding: 15px;
+        font-size: 16px;
+      }
+    </style>
   </head>
   <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
-    <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
-
-      You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag.
-
-      To begin the development, run `npm start` or `yarn start`.
-      To create a production bundle, use `npm run build` or `yarn build`.
-    -->
+    <script type="module" src="/src/index.tsx"></script>
   </body>
 </html>

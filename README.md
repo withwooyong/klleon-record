@@ -1,3 +1,54 @@
+# Klleon Avatar Chat with Recording
+
+React 애플리케이션으로 KlleonChat SDK를 사용하여 아바타와 대화하고 녹화할 수 있는 프로젝트입니다.
+
+## 환경 설정
+
+### 1. 환경변수 설정
+
+프로젝트를 실행하기 전에 `.env` 파일을 생성하고 KlleonChat SDK 키를 설정해야 합니다.
+
+```bash
+# .env 파일 생성
+cp .env.example .env
+```
+
+`.env` 파일을 열고 실제 SDK 키를 입력하세요:
+
+```env
+REACT_APP_KLLEON_SDK_KEY=your_actual_sdk_key_here
+```
+
+### 2. 의존성 설치
+
+```bash
+npm install
+```
+
+### 3. 개발 서버 실행
+
+```bash
+npm start
+```
+
+브라우저에서 [http://localhost:3000](http://localhost:3000)을 열어 애플리케이션을 확인할 수 있습니다.
+
+## 주요 기능
+
+- **아바타 선택**: 다양한 아바타 중에서 선택하여 대화
+- **실시간 채팅**: 아바타와 텍스트 기반 대화
+- **비디오 녹화**: 아바타 화면을 WebM 형식으로 녹화 및 다운로드
+- **엔터키 전송**: 텍스트 입력 후 엔터키로 메시지 전송
+
+## 기술 스택
+
+- React 18
+- TypeScript
+- KlleonChat SDK
+- MediaRecorder API (녹화 기능)
+
+---
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
