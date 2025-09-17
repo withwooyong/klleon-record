@@ -1,6 +1,6 @@
-# Klleon Avatar Chat with Recording
+# Klleon Avatar Chat
 
-React 애플리케이션으로 KlleonChat SDK를 사용하여 아바타와 대화하고 녹화할 수 있는 프로젝트입니다.
+React 애플리케이션으로 KlleonChat SDK를 사용하여 아바타와 대화 시뮬레이션 프로젝트입니다.
 
 ## 환경 설정
 
@@ -37,7 +37,6 @@ npm start
 
 - **아바타 선택**: 다양한 아바타 중에서 선택하여 대화
 - **실시간 채팅**: 아바타와 텍스트 기반 대화
-- **비디오 녹화**: 아바타 화면을 WebM 형식으로 녹화 및 다운로드
 - **엔터키 전송**: 텍스트 입력 후 엔터키로 메시지 전송
 
 ## 기술 스택
@@ -45,7 +44,6 @@ npm start
 - React 18
 - TypeScript
 - KlleonChat SDK
-- MediaRecorder API (녹화 기능)
 
 ---
 
